@@ -4,7 +4,7 @@
 
 [![](https://img.shields.io/badge/Enroll-Now-orange)](https://rieckpil.de/tdd-with-spring-boot-done-right/)
 
-`main` branch: [![Build & Test Maven Project (main)](https://github.com/rieckpil/tdd-with-spring-boot-done-right/workflows/Build%20&%20Test%20Maven%20Project/badge.svg)](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml?query=branch%3Amain)
+`main` branch: [![Build & Test Maven Project](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml)
 
 ## Introduction
 
