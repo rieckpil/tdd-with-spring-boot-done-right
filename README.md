@@ -1,10 +1,11 @@
-[![Spring Boot TDD Online Course](https://rieckpil.de/wp-content/uploads/2023/05/tsbdr-featured-image.png)](https://rieckpil.de/tdd-with-spring-boot-done-right/)
+[![Spring Boot TDD Online Course](https://rieckpil.de/wp-content/uploads/2023/07/tdd-with-spring-boot-done-right-final-featured-image.png)](https://rieckpil.de/tdd-with-spring-boot-done-right/)
 
 # TDD with Spring Boot Done Right
 
 [![](https://img.shields.io/badge/Enroll-Now-orange)](https://rieckpil.de/tdd-with-spring-boot-done-right/)
 
-`main` branch: [![Build & Test Maven Project](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml)
+- `main` branch: [![Build & Test Maven Project](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml)
+- `code-aling` branch: [![Build & Test Maven Project](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml/badge.svg?branch=code-along)](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml)
 
 ## Introduction
 
@@ -15,7 +16,13 @@ Boost your productivity with TDD (Test-Driven Development) and Spring Boot to ac
 - **Real-World Examples**: TDD for a Game or Calculator is simple. That's playground and doesn't prepare you. We go for real world hands-on examples.
 - **Productivity Boost:** Write more maintainable code. Get confidence by adding a covering test suite for your project to sleep better at night.
 
-Enroll [here](https://rieckpil.de/tdd-with-spring-boot-done-right/) for the TDD with Spring Boot Done Right Online Course.
+The TDD with Spring Boot Done Right Online Courses focuses on teaching the TDD with Java and Spring Boot.
+
+We won't cover all technical details of testing with Spring Boot, but rather focus on the TDD methodology and how to apply it in.
+
+If you're new to testing with Java and Spring Boot, we highly recommend to first work through the [Testing Spring Boot Applications Masterclass](https://rieckpil.de/testing-spring-boot-applications-masterclass/) before taking this course.
+
+» Enroll [here](https://rieckpil.de/tdd-with-spring-boot-done-right/) for the TDD with Spring Boot Done Right Online Course.
 
 ## Further Resources and Links
 
