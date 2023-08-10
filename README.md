@@ -1,7 +1,9 @@
 [![Spring Boot TDD Online Course](https://rieckpil.de/wp-content/uploads/2023/07/tdd-with-spring-boot-done-right-final-featured-image.png)](https://rieckpil.de/tdd-with-spring-boot-done-right/)
 
-# TDD with Spring Boot Done Right
+# TDD with Spring Boot Done Right Online Course
 
+[![](https://img.shields.io/badge/Spring%20Boot%20Version-3.1.X-orange)](/pom.xml)
+[![](https://img.shields.io/badge/Java%20Version-17-orange)](/pom.xml)
 [![](https://img.shields.io/badge/Enroll-Now-orange)](https://rieckpil.de/tdd-with-spring-boot-done-right/)
 
 - `main` branch: [![Build & Test Maven Project](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml)
