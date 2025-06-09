@@ -30,87 +30,86 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @WebMvcTest(CommentApiController.class)
 class CommentApiControllerTest {
 
-  @Autowired
-  private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
-  @MockitoBean
-  private CommentService commentService;
+  @MockitoBean private CommentService commentService;
 
   @Test
   void shouldAllowAnonymousUsersToGetAllComments() throws Exception {
 
     when(commentService.findAll())
-      .thenReturn(
-        List.of(
-          new Comment(UUID.randomUUID(), "40", "Lorem Ipsum", LocalDate.now()),
-          new Comment(UUID.randomUUID(), "41", "Lorem Ipsum", LocalDate.now().minusDays(1)),
-          new Comment(UUID.randomUUID(), "42", "Lorem Ipsum", LocalDate.now().minusDays(3))));
+        .thenReturn(
+            List.of(
+                new Comment(UUID.randomUUID(), "40", "Lorem Ipsum", LocalDate.now()),
+                new Comment(UUID.randomUUID(), "41", "Lorem Ipsum", LocalDate.now().minusDays(1)),
+                new Comment(UUID.randomUUID(), "42", "Lorem Ipsum", LocalDate.now().minusDays(3))));
 
     this.mockMvc
-      .perform(get("/api/comments").header(ACCEPT, APPLICATION_JSON))
-      .andExpect(status().is(200))
-      .andExpect(content().contentType(APPLICATION_JSON))
-      .andExpect(jsonPath("$.length()", is(3)))
-      .andExpect(jsonPath("$[0].content", notNullValue()))
-      .andExpect(jsonPath("$[0].id", notNullValue()))
-      .andExpect(jsonPath("$[0].creationDate", notNullValue()))
-      .andExpect(jsonPath("$[0].authorId", notNullValue()));
+        .perform(get("/api/comments").header(ACCEPT, APPLICATION_JSON))
+        .andExpect(status().is(200))
+        .andExpect(content().contentType(APPLICATION_JSON))
+        .andExpect(jsonPath("$.length()", is(3)))
+        .andExpect(jsonPath("$[0].content", notNullValue()))
+        .andExpect(jsonPath("$[0].id", notNullValue()))
+        .andExpect(jsonPath("$[0].creationDate", notNullValue()))
+        .andExpect(jsonPath("$[0].authorId", notNullValue()));
   }
 
   @Test
   void shouldRejectAnonymousUsersWhenCreatingComments() throws Exception {
     this.mockMvc
-      .perform(
-        post("/api/comments")
-          .contentType(APPLICATION_JSON)
-          .content(
-            """
+        .perform(
+            post("/api/comments")
+                .contentType(APPLICATION_JSON)
+                .content(
+                    """
                {
                   "content": "Lorem Ipsum"
                }
               """))
-      .andExpect(status().isUnauthorized());
+        .andExpect(status().isUnauthorized());
   }
 
   @Test
   @WithMockUser(
-    username = "duke",
-    roles = {"VISITOR"})
+      username = "duke",
+      roles = {"VISITOR"})
   void shouldRejectAuthenticatedUserWithoutAdminRoleWhenCreatingComments() throws Exception {
     this.mockMvc
-      .perform(
-        post("/api/comments")
-          .contentType(APPLICATION_JSON)
-          .content(
-            """
+        .perform(
+            post("/api/comments")
+                .contentType(APPLICATION_JSON)
+                .content(
+                    """
                {
                   "content": "Lorem Ipsum"
                }
               """))
-      .andExpect(status().isForbidden());
+        .andExpect(status().isForbidden());
   }
 
   @Test
   @WithMockUser(
-    username = "duke",
-    roles = {"VISITOR", "ADMIN"})
+      username = "duke",
+      roles = {"VISITOR", "ADMIN"})
   void shouldFailOnInvalidCommentData() throws Exception {
     this.mockMvc
-      .perform(
-        post("/api/comments")
-          .contentType(APPLICATION_JSON)
-          .content("""
+        .perform(
+            post("/api/comments")
+                .contentType(APPLICATION_JSON)
+                .content(
+                    """
              {
                 "content": ""
              }
             """))
-      .andExpect(status().isBadRequest());
+        .andExpect(status().isBadRequest());
   }
 
   @Test
   @WithMockUser(
-    username = "duke",
-    roles = {"VISITOR", "ADMIN"})
+      username = "duke",
+      roles = {"VISITOR", "ADMIN"})
   void shouldCreateCommentWhenUserIsAuthenticatedAndAdmin() throws Exception {
 
     UUID newlyCreatedId = UUID.randomUUID();
@@ -118,19 +117,19 @@ class CommentApiControllerTest {
     when(commentService.createComment(anyString(), anyString())).thenReturn(newlyCreatedId);
 
     this.mockMvc
-      .perform(
-        post("/api/comments")
-          .contentType(APPLICATION_JSON)
-          .content(
-            """
+        .perform(
+            post("/api/comments")
+                .contentType(APPLICATION_JSON)
+                .content(
+                    """
                {
                   "content": "Lorem Ipsum"
                }
               """))
-      .andExpect(status().isCreated())
-      .andExpect(header().exists("Location"))
-      .andExpect(
-        header()
-          .string("Location", Matchers.containsString("/api/comments/" + newlyCreatedId)));
+        .andExpect(status().isCreated())
+        .andExpect(header().exists("Location"))
+        .andExpect(
+            header()
+                .string("Location", Matchers.containsString("/api/comments/" + newlyCreatedId)));
   }
 }

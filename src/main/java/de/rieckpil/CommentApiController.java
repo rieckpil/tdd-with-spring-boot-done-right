@@ -35,14 +35,14 @@ public class CommentApiController {
 
   @PostMapping
   public ResponseEntity<Void> createComment(
-    @Valid @RequestBody CommentCreationRequest request,
-    Authentication authentication,
-    UriComponentsBuilder uriComponentsBuilder) {
+      @Valid @RequestBody CommentCreationRequest request,
+      Authentication authentication,
+      UriComponentsBuilder uriComponentsBuilder) {
 
     UUID newCommentId = commentService.createComment(request.content(), authentication.getName());
 
     UriComponents uriComponents =
-      uriComponentsBuilder.path("/api/comments/{id}").buildAndExpand(newCommentId);
+        uriComponentsBuilder.path("/api/comments/{id}").buildAndExpand(newCommentId);
 
     return ResponseEntity.created(uriComponents.toUri()).build();
   }

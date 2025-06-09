@@ -15,11 +15,9 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class TimeUtilTest {
 
-  @Mock
-  private TimeProvider timeProvider;
+  @Mock private TimeProvider timeProvider;
 
-  @InjectMocks
-  private TimeUtil cut;
+  @InjectMocks private TimeUtil cut;
 
   @Test
   void shouldThrowExceptionWhenDateIsInFuture() throws Exception {
@@ -29,8 +27,8 @@ class TimeUtilTest {
     LocalDate creationDateInTheFuture = LocalDate.now().plusDays(1);
 
     assertThrows(
-      IllegalArgumentException.class,
-      () -> cut.getDiffBetweenCreationDate(creationDateInTheFuture));
+        IllegalArgumentException.class,
+        () -> cut.getDiffBetweenCreationDate(creationDateInTheFuture));
   }
 
   @Test
