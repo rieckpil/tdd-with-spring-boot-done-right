@@ -5,7 +5,7 @@ on:
     - cron: '0 15 * * *' # daily at 3pm
 jobs:
   build-and-test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     name: Build Application
     steps:
       - name: Checkout Code
