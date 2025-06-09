@@ -31,13 +31,13 @@ public class PostClient {
 
     do {
       PostResult result =
-          postWebClient
-              .get()
-              .uri("/posts?limit={limit}&skip={skip}", limit, skip)
-              .accept(MediaType.APPLICATION_JSON)
-              .retrieve()
-              .bodyToMono(PostResult.class)
-              .block();
+        postWebClient
+          .get()
+          .uri("/posts?limit={limit}&skip={skip}", limit, skip)
+          .accept(MediaType.APPLICATION_JSON)
+          .retrieve()
+          .bodyToMono(PostResult.class)
+          .block();
 
       totalResult = result.total();
 
@@ -45,7 +45,8 @@ public class PostClient {
 
       allPosts.addAll(result.posts());
 
-    } while (allPosts.size() < totalResult);
+    }
+    while (allPosts.size() < totalResult);
 
     return allPosts;
   }

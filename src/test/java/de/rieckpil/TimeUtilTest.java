@@ -8,15 +8,18 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class TimeUtilTest {
 
-  @Mock private TimeProvider timeProvider;
+  @Mock
+  private TimeProvider timeProvider;
 
-  @InjectMocks private TimeUtil cut;
+  @InjectMocks
+  private TimeUtil cut;
 
   @Test
   void shouldThrowExceptionWhenDateIsInFuture() throws Exception {
@@ -26,8 +29,8 @@ class TimeUtilTest {
     LocalDate creationDateInTheFuture = LocalDate.now().plusDays(1);
 
     assertThrows(
-        IllegalArgumentException.class,
-        () -> cut.getDiffBetweenCreationDate(creationDateInTheFuture));
+      IllegalArgumentException.class,
+      () -> cut.getDiffBetweenCreationDate(creationDateInTheFuture));
   }
 
   @Test
