@@ -8,20 +8,23 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
-import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 import static org.springframework.http.HttpHeaders.ACCEPT;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @Import(WebSecurityConfiguration.class)
 @WebMvcTest(CommentApiController.class)
@@ -29,7 +32,7 @@ class CommentApiControllerTest {
 
   @Autowired private MockMvc mockMvc;
 
-  @MockBean private CommentService commentService;
+  @MockitoBean private CommentService commentService;
 
   @Test
   void shouldAllowAnonymousUsersToGetAllComments() throws Exception {
@@ -60,10 +63,10 @@ class CommentApiControllerTest {
                 .contentType(APPLICATION_JSON)
                 .content(
                     """
-           {
-              "content": "Lorem Ipsum"
-           }
-          """))
+               {
+                  "content": "Lorem Ipsum"
+               }
+              """))
         .andExpect(status().isUnauthorized());
   }
 
@@ -78,10 +81,10 @@ class CommentApiControllerTest {
                 .contentType(APPLICATION_JSON)
                 .content(
                     """
-           {
-              "content": "Lorem Ipsum"
-           }
-          """))
+               {
+                  "content": "Lorem Ipsum"
+               }
+              """))
         .andExpect(status().isForbidden());
   }
 
@@ -94,11 +97,12 @@ class CommentApiControllerTest {
         .perform(
             post("/api/comments")
                 .contentType(APPLICATION_JSON)
-                .content("""
-           {
-              "content": ""
-           }
-          """))
+                .content(
+                    """
+             {
+                "content": ""
+             }
+            """))
         .andExpect(status().isBadRequest());
   }
 
@@ -118,10 +122,10 @@ class CommentApiControllerTest {
                 .contentType(APPLICATION_JSON)
                 .content(
                     """
-           {
-              "content": "Lorem Ipsum"
-           }
-          """))
+               {
+                  "content": "Lorem Ipsum"
+               }
+              """))
         .andExpect(status().isCreated())
         .andExpect(header().exists("Location"))
         .andExpect(

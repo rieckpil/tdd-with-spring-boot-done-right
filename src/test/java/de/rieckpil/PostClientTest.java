@@ -8,7 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -22,7 +24,7 @@ class PostClientTest {
       new PostClient(WebClient.builder().baseUrl(mockServer.baseUrl()).build());
 
   @Test
-  void shouldReturnAllPosts() throws Exception {
+  void shouldReturnAllPosts() {
 
     mockServer.stubFor(
         WireMock.get(urlPathEqualTo("/posts"))

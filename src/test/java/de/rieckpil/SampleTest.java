@@ -2,8 +2,6 @@ package de.rieckpil;
 
 import org.junit.jupiter.api.Test;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 class SampleTest {
 
   @Test
