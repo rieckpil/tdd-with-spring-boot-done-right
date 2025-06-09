@@ -2,8 +2,8 @@
 
 # TDD with Spring Boot Done Right Online Course
 
-[![](https://img.shields.io/badge/Spring%20Boot%20Version-3.1.X-orange)](/pom.xml)
-[![](https://img.shields.io/badge/Java%20Version-17-orange)](/pom.xml)
+[![](https://img.shields.io/badge/Spring%20Boot%20Version-3.5.X-orange)](/pom.xml)
+[![](https://img.shields.io/badge/Java%20Version-21-orange)](/pom.xml)
 [![](https://img.shields.io/badge/Enroll-Now-orange)](https://rieckpil.de/tdd-with-spring-boot-done-right/)
 
 - `main` branch: [![Build & Test Maven Project](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml/badge.svg?branch=main)](https://github.com/rieckpil/tdd-with-spring-boot-done-right/actions/workflows/maven.yml)
@@ -39,13 +39,13 @@ If you're new to testing with Java and Spring Boot, we highly recommend to first
 
 Mandatory requirements:
 
-* Java 17 (JDK flavour (OpenJDK/Azul/Oracle) does not matter). For the correct Java version setup I can recommend [JEnv](https://www.youtube.com/watch?v=9FVZyeFDXo0) (Mac/Linux) and the [Maven Toolchains Plugin](https://maven.apache.org/plugins/maven-toolchains-plugin/toolchains/jdk.html) (Windows)
+* Java 21 (JDK flavour (OpenJDK/Azul/Oracle) does not matter). For the correct Java version setup I can recommend [JEnv](https://www.youtube.com/watch?v=9FVZyeFDXo0) (Mac/Linux) and the [Maven Toolchains Plugin](https://maven.apache.org/plugins/maven-toolchains-plugin/toolchains/jdk.html) (Windows)
 
 ```
 $ java -version
-openjdk version "17" 2021-09-14 LTS
-OpenJDK Runtime Environment Zulu17.28+13-CA (build 17+35-LTS)
-OpenJDK 64-Bit Server VM Zulu17.28+13-CA (build 17+35-LTS, mixed mode, sharing)
+openjdk version "21.0.6" 2025-01-21 LTS
+OpenJDK Runtime Environment Temurin-21.0.6+7 (build 21.0.6+7-LTS)
+OpenJDK 64-Bit Server VM Temurin-21.0.6+7 (build 21.0.6+7-LTS, mixed mode, sharing)
 ```
 
 * Docker Engine (Community Edition is enough):
