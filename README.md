@@ -20,10 +20,6 @@ Boost your productivity with TDD (Test-Driven Development) and Spring Boot to ac
 
 The TDD with Spring Boot Done Right Online Courses focuses on teaching the TDD with Java and Spring Boot.
 
-We won't cover all technical details of testing with Spring Boot, but rather focus on the TDD methodology and how to apply it in.
-
-If you're new to testing with Java and Spring Boot, we highly recommend to first work through the [Testing Spring Boot Applications Masterclass](https://rieckpil.de/testing-spring-boot-applications-masterclass/) before taking this course.
-
 » Enroll [here](https://rieckpil.de/tdd-with-spring-boot-done-right/) for the TDD with Spring Boot Done Right Online Course.
 
 ## Further Resources and Links
@@ -32,6 +28,12 @@ If you're new to testing with Java and Spring Boot, we highly recommend to first
 * [Course Overview](https://rieckpil.de/courses/tdd-with-spring-boot-done-right/)
 * [Course Login](https://rieckpil.de/wp-login.php)
 * [Password Reset](https://rieckpil.de/wp-login.php?action=lostpassword)
+
+## Branch Overview
+
+- `main` branch: Contains the latest code of the course. This is the code that we will build together in the course.
+- `code-along` branch: If you want to follow along with the code, you can check out this branch.
+- `spring-boot-3.5` branch: Contains the code for Spring Boot 3.5.
 
 # Local Project Setup
 
