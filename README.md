@@ -1,8 +1,8 @@
-[![Spring Boot TDD Online Course](https://rieckpil.de/wp-content/uploads/2023/07/tdd-with-spring-boot-done-right-final-featured-image.png)](https://rieckpil.de/tdd-with-spring-boot-done-right/)
+[![Spring Boot TDD Online Course](docs/course-logo.png)](https://rieckpil.de/tdd-with-spring-boot-done-right/)
 
 # TDD with Spring Boot Done Right Online Course
 
-[![](https://img.shields.io/badge/Spring%20Boot%20Version-3.5.X-orange)](/pom.xml)
+[![](https://img.shields.io/badge/Spring%20Boot%20Version-4.X-orange)](/pom.xml)
 [![](https://img.shields.io/badge/Java%20Version-21-orange)](/pom.xml)
 [![](https://img.shields.io/badge/Enroll-Now-orange)](https://rieckpil.de/tdd-with-spring-boot-done-right/)
 
