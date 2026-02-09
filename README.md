@@ -31,9 +31,9 @@ The TDD with Spring Boot Done Right Online Courses focuses on teaching the TDD w
 
 ## Branch Overview
 
-- `main` branch: Contains the latest code of the course. This is the code that we will build together in the course.
-- `code-along` branch: If you want to follow along with the code, you can check out this branch.
-- `spring-boot-3.5` branch: Contains the code for Spring Boot 3.5.
+- `main`: Contains the latest code of the course. This is the code that we will build together in the course.
+- `code-along`: If you want to follow along with the code, you can check out this branch.
+- `spring-boot-3.5`: Contains the code for Spring Boot 3.5.
 
 # Local Project Setup
 
