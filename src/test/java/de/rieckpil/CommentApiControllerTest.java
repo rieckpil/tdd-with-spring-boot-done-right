@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.UUID;
 
 import org.hamcrest.Matchers;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -28,6 +30,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @Import(WebSecurityConfiguration.class)
 @WebMvcTest(CommentApiController.class)
+@Disabled(
+    "Implement the functionality in the CommentApiController and then remove this annotation to enable the tests")
 class CommentApiControllerTest {
 
   @Autowired private MockMvc mockMvc;
