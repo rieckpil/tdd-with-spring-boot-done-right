@@ -2,8 +2,11 @@ package de.rieckpil;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import jakarta.validation.Valid;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +34,28 @@ public class CommentApiController {
   @GetMapping
   public List<Comment> getAllComments() {
     return commentService.findAll();
+  }
+
+  @GetMapping(value = "/export", produces = "text/csv")
+  public ResponseEntity<String> exportCommentsAsCsv() {
+    List<Comment> comments = commentService.findAll();
+
+    String csvContent =
+        Stream.concat(
+                Stream.of("id,authorId,content,creationDate"),
+                comments.stream()
+                    .map(
+                        comment ->
+                            comment.id()
+                                + ","
+                                + comment.authorId()
+                                + ","
+                                + comment.content()
+                                + ","
+                                + comment.creationDate()))
+            .collect(Collectors.joining("\n"));
+
+    return ResponseEntity.ok().contentType(MediaType.parseMediaType("text/csv")).body(csvContent);
   }
 
   @PostMapping

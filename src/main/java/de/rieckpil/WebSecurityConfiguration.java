@@ -22,6 +22,8 @@ public class WebSecurityConfiguration {
                     .permitAll()
                     .requestMatchers(HttpMethod.POST, "/api/comments")
                     .hasRole("ADMIN")
+                    .requestMatchers(HttpMethod.GET, "/api/comments/export")
+                    .authenticated()
                     .anyRequest()
                     .authenticated())
         .httpBasic(Customizer.withDefaults())
