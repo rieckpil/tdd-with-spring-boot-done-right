@@ -11,6 +11,6 @@ public class LocalDevTestcontainersConfig {
   @Bean
   @ServiceConnection
   static PostgreSQLContainer postgres() {
-    return new PostgreSQLContainer("postgres:17-alpine");
+    return new PostgreSQLContainer("postgres:18-alpine");
   }
 }
